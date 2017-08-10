@@ -1,0 +1,14 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006-2011 OpenWrt.org
+
+START=99
+
+start() {
+	rm -f /tmp/leoman/*
+	/bin/leoman_bed -D -l 7 -d /dev/ttyS1 -s 115200 -t 1000 -u /dev/ttyS2 -p 115200 -o 1000
+}
+
+stop() {
+	killall -INT leoman_bed
+	sleep 1
+}

@@ -1,0 +1,709 @@
+﻿root@OpenWrt:~# time lua parse_report.lua 2017-4-17 
+args:   parse_report.lua        2017-4-17       nil     nil
+012345678ò
+-------get sleep data ,on leave bed:
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+retdata array type is table size is 2
+inx 1 single item length is 17
+hex switch to char-char:
+===>55031707e10319010158d6b98058d72d84  len is 34
+inx 2 single item length is 4
+hex switch to char-char:
+===>550306ee    len is 8
+
+-------get sleep data ,sleep data:
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug:sleep_data array size is  18      1
+Debug st->end   1490446650      1490448930
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490458290      1490467200
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490467200      1490468070
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490468070      1490468580
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490468580      1490468850
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490468850      1490472840
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490472840      1490473230
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490473230      1490473650
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490473650      1490474220
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490474220      1490478390
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490478390      1490479380
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490479380      1490481510
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490481510      1490488590
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490488590      1490489310
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490489310      1490489340
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490489340      1490495610
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490495610      1490496390
+sub_report.sleep_data,  2       num ret len     17
+Debug st->end   1490496390      1490496900
+sub_report.sleep_data,  2       num ret len     17
+sub_report.sleep_data_2 is null
+retdata array type is table size is 19
+inx 1 single item length is 17
+hex switch to char-char:
+===>55031707e10319020458d6693a58d67222  len is 34
+inx 2 single item length is 17
+hex switch to char-char:
+===>55031707e10319020458d696b258d6b980  len is 34
+inx 3 single item length is 17
+hex switch to char-char:
+===>55031707e10319020258d6b98058d6bce6  len is 34
+inx 4 single item length is 17
+hex switch to char-char:
+===>55031707e10319020458d6bce658d6bee4  len is 34
+inx 5 single item length is 17
+hex switch to char-char:
+===>55031707e10319020258d6bee458d6bff2  len is 34
+inx 6 single item length is 17
+hex switch to char-char:
+===>55031707e10319020458d6bff258d6cf88  len is 34
+inx 7 single item length is 17
+hex switch to char-char:
+===>55031707e10319020158d6cf8858d6d10e  len is 34
+inx 8 single item length is 17
+hex switch to char-char:
+===>55031707e10319020258d6d10e58d6d2b2  len is 34
+inx 9 single item length is 17
+hex switch to char-char:
+===>55031707e10319020158d6d2b258d6d4ec  len is 34
+inx 10 single item length is 17
+hex switch to char-char:
+===>55031707e10319020458d6d4ec58d6e536  len is 34
+inx 11 single item length is 17
+hex switch to char-char:
+===>55031707e10319020258d6e53658d6e914  len is 34
+inx 12 single item length is 17
+hex switch to char-char:
+===>55031707e10319020158d6e91458d6f166  len is 34
+inx 13 single item length is 17
+hex switch to char-char:
+===>55031707e10319020458d6f16658d70d0e  len is 34
+inx 14 single item length is 17
+hex switch to char-char:
+===>55031707e10319020358d70d0e58d70fde  len is 34
+inx 15 single item length is 17
+hex switch to char-char:
+===>55031707e10319020258d70fde58d70ffc  len is 34
+inx 16 single item length is 17
+hex switch to char-char:
+===>55031707e10319020458d70ffc58d7287a  len is 34
+inx 17 single item length is 17
+hex switch to char-char:
+===>55031707e10319020258d7287a58d72b86  len is 34
+inx 18 single item length is 17
+hex switch to char-char:
+===>55031707e10319020158d72b8658d72d84  len is 34
+inx 19 single item length is 4
+hex switch to char-char:
+===>550306ee    len is 8
+
+-------get sleep data ,sleep score:
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+retdata array type is table size is 2
+inx 1 single item length is 10
+hex switch to char-char:
+===>55030c07e1031903071a        len is 20
+inx 2 single item length is 4
+hex switch to char-char:
+===>550306ee    len is 8
+
+-------get day of month:
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+retdata array type is table size is 1
+inx 1 single item length is 11
+hex switch to char-char:
+===>55a20d07e10319003c0038      len is 22
+
+-------get heart at time:
+
+-------get heart at time 0
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 59 at time 0
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e1031900003b        len is 20
+
+-------get heart at time 1
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 59 at time 1
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e1031901003b        len is 20
+
+-------get heart at time 2
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 256 at time 2
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319020100        len is 20
+
+-------get heart at time 3
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 53 at time 3
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319030035        len is 20
+
+-------get heart at time 4
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 61 at time 4
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e1031904003d        len is 20
+
+-------get heart at time 5
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 51 at time 5
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319050033        len is 20
+
+-------get heart at time 6
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 59 at time 6
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e1031906003b        len is 20
+
+-------get heart at time 7
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 57 at time 7
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319070039        len is 20
+
+-------get heart at time 8
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 63 at time 8
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e1031908003f        len is 20
+
+-------get heart at time 9
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 9
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319090000        len is 20
+
+-------get heart at time 10
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 10
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e103190a0000        len is 20
+
+-------get heart at time 11
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 11
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e103190b0000        len is 20
+
+-------get heart at time 12
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 12
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e103190c0000        len is 20
+
+-------get heart at time 13
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 13
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e103190d0000        len is 20
+
+-------get heart at time 14
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 14
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e103190e0000        len is 20
+
+-------get heart at time 15
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 15
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e103190f0000        len is 20
+
+-------get heart at time 16
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 16
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319100000        len is 20
+
+-------get heart at time 17
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 17
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319110000        len is 20
+
+-------get heart at time 18
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 18
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319120000        len is 20
+
+-------get heart at time 19
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 19
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319130000        len is 20
+
+-------get heart at time 20
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 20
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319140000        len is 20
+
+-------get heart at time 21
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 21
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319150000        len is 20
+
+-------get heart at time 22
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 0 at time 22
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e10319160000        len is 20
+
+-------get heart at time 23
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get heart_beat 59 at time 23
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a40b07e1031917003b        len is 20
+
+-------get breath at time 0
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 20 at time 0
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319000014        len is 20
+
+-------get breath at time 1
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 20 at time 1
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319010014        len is 20
+
+-------get breath at time 2
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 22 at time 2
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319020016        len is 20
+
+-------get breath at time 3
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 20 at time 3
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319030014        len is 20
+
+-------get breath at time 4
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 20 at time 4
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319040014        len is 20
+
+-------get breath at time 5
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 19 at time 5
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319050013        len is 20
+
+-------get breath at time 6
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 21 at time 6
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319060015        len is 20
+
+-------get breath at time 7
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 22 at time 7
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319070016        len is 20
+
+-------get breath at time 8
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 22 at time 8
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319080016        len is 20
+
+-------get breath at time 9
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 9
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319090000        len is 20
+
+-------get breath at time 10
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 10
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e103190a0000        len is 20
+
+-------get breath at time 11
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 11
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e103190b0000        len is 20
+
+-------get breath at time 12
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 12
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e103190c0000        len is 20
+
+-------get breath at time 13
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 13
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e103190d0000        len is 20
+
+-------get breath at time 14
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 14
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e103190e0000        len is 20
+
+-------get breath at time 15
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 15
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e103190f0000        len is 20
+
+-------get breath at time 16
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 16
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319100000        len is 20
+
+-------get breath at time 17
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 17
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319110000        len is 20
+
+-------get breath at time 18
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 18
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319120000        len is 20
+
+-------get breath at time 19
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 19
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319130000        len is 20
+
+-------get breath at time 20
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 20
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319140000        len is 20
+
+-------get breath at time 21
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 21
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319150000        len is 20
+
+-------get breath at time 22
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 0 at time 22
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319160000        len is 20
+
+-------get breath at time 23
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get Breath Rate 23 at time 23
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a50b07e10319170017        len is 20
+
+-------get move at time 0
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 40 at time 0
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319000028        len is 20
+
+-------get move at time 1
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 37 at time 1
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319010025        len is 20
+
+-------get move at time 2
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 40 at time 2
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319020028        len is 20
+
+-------get move at time 3
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 16 at time 3
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319030010        len is 20
+
+-------get move at time 4
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 36 at time 4
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319040024        len is 20
+
+-------get move at time 5
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 10 at time 5
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e1031905000a        len is 20
+
+-------get move at time 6
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 32 at time 6
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319060020        len is 20
+
+-------get move at time 7
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 19 at time 7
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319070013        len is 20
+
+-------get move at time 8
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 38 at time 8
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319080026        len is 20
+
+-------get move at time 9
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 9
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319090000        len is 20
+
+-------get move at time 10
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 10
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e103190a0000        len is 20
+
+-------get move at time 11
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 11
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e103190b0000        len is 20
+
+-------get move at time 12
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 12
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e103190c0000        len is 20
+
+-------get move at time 13
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 13
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e103190d0000        len is 20
+
+-------get move at time 14
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 14
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e103190e0000        len is 20
+
+-------get move at time 15
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 15
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e103190f0000        len is 20
+
+-------get move at time 16
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 16
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319100000        len is 20
+
+-------get move at time 17
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 17
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319110000        len is 20
+
+-------get move at time 18
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 18
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319120000        len is 20
+
+-------get move at time 19
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 19
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319130000        len is 20
+
+-------get move at time 20
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 1 at time 20
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319140001        len is 20
+
+-------get move at time 21
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 21
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319150000        len is 20
+
+-------get move at time 22
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 0 at time 22
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e10319160000        len is 20
+
+-------get move at time 23
+Debug:find day file:    /mnt/mmcblk0p1/leoman/2017-4-17
+Debug get move Rate 31 at time 23
+retdata array type is table size is 1
+inx 1 single item length is 10
+hex switch to char-char:
+===>55a60b07e1031917001f        len is 20
+real    0m 1.97s
+user    0m 0.57s
+sys     0m 0.04s

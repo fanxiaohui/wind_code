@@ -1,0 +1,184 @@
+以下为2017-4-17对应的串口上报数据：
+为便于查看，由hex转为char
+
+===get sleep data ,on or leave bed:
+===>55031707e10319010158d6b98058d72d84	len is 34
+===>550306ee	len is 8   --结束
+
+===get sleep data ,sleep data(deep,ligth,rem,awake):
+===>55031707e10319020458d6693a58d67222	len is 34
+===>55031707e10319020458d696b258d6b980	len is 34
+===>55031707e10319020258d6b98058d6bce6	len is 34
+===>55031707e10319020458d6bce658d6bee4	len is 34
+===>55031707e10319020258d6bee458d6bff2	len is 34
+===>55031707e10319020458d6bff258d6cf88	len is 34
+===>55031707e10319020158d6cf8858d6d10e	len is 34
+===>55031707e10319020258d6d10e58d6d2b2	len is 34
+===>55031707e10319020158d6d2b258d6d4ec	len is 34
+===>55031707e10319020458d6d4ec58d6e536	len is 34
+===>55031707e10319020258d6e53658d6e914	len is 34
+===>55031707e10319020158d6e91458d6f166	len is 34
+===>55031707e10319020458d6f16658d70d0e	len is 34
+===>55031707e10319020358d70d0e58d70fde	len is 34
+===>55031707e10319020258d70fde58d70ffc	len is 34
+===>55031707e10319020458d70ffc58d7287a	len is 34
+===>55031707e10319020258d7287a58d72b86	len is 34
+===>55031707e10319020158d72b8658d72d84	len is 34
+===>550306ee	len is 8
+
+===get sleep data ,sleep score:
+===>55030c07e1031903071a	len is 20
+===>550306ee	len is 8
+
+===get day of month:
+===>55a20d07e10319003c0038	len is 22
+
+===get heart at time:
+===get heart at time 0
+===>55a40b07e1031900003b	len is 20
+===get heart at time 1
+===>55a40b07e1031901003b	len is 20
+===get heart at time 2
+===>55a40b07e10319020100	len is 20
+===get heart at time 3
+===>55a40b07e10319030035	len is 20
+===get heart at time 4
+===>55a40b07e1031904003d	len is 20
+===get heart at time 5
+===>55a40b07e10319050033	len is 20
+===get heart at time 6
+===>55a40b07e1031906003b	len is 20
+===get heart at time 7
+===>55a40b07e10319070039	len is 20
+===get heart at time 8
+===>55a40b07e1031908003f	len is 20
+===get heart at time 9
+===>55a40b07e10319090000	len is 20
+===get heart at time 10
+===>55a40b07e103190a0000	len is 20
+===get heart at time 11
+===>55a40b07e103190b0000	len is 20
+===get heart at time 12
+===>55a40b07e103190c0000	len is 20
+===get heart at time 13
+===>55a40b07e103190d0000	len is 20
+===get heart at time 14
+===>55a40b07e103190e0000	len is 20
+===get heart at time 15
+===>55a40b07e103190f0000	len is 20
+===get heart at time 16
+===>55a40b07e10319100000	len is 20
+===get heart at time 17
+===>55a40b07e10319110000	len is 20
+===get heart at time 18
+===>55a40b07e10319120000	len is 20
+===get heart at time 19
+===>55a40b07e10319130000	len is 20
+===get heart at time 20
+===>55a40b07e10319140000	len is 20
+===get heart at time 21
+===>55a40b07e10319150000	len is 20
+===get heart at time 22
+===>55a40b07e10319160000	len is 20
+===get heart at time 23
+===>55a40b07e1031917003b	len is 20
+
+
+===get breath at time 0
+===>55a50b07e10319000014	len is 20
+===get breath at time 1
+===>55a50b07e10319010014	len is 20
+===get breath at time 2
+===>55a50b07e10319020016	len is 20
+===get breath at time 3
+===>55a50b07e10319030014	len is 20
+===get breath at time 4
+===>55a50b07e10319040014	len is 20
+===get breath at time 5
+===>55a50b07e10319050013	len is 20
+===get breath at time 6
+===>55a50b07e10319060015	len is 20
+===get breath at time 7
+===>55a50b07e10319070016	len is 20
+===get breath at time 8
+===>55a50b07e10319080016	len is 20
+===get breath at time 9
+===>55a50b07e10319090000	len is 20
+===get breath at time 10
+===>55a50b07e103190a0000	len is 20
+===get breath at time 11
+===>55a50b07e103190b0000	len is 20
+===get breath at time 12
+===>55a50b07e103190c0000	len is 20
+===get breath at time 13
+===>55a50b07e103190d0000	len is 20
+===get breath at time 14
+===>55a50b07e103190e0000	len is 20
+===get breath at time 15
+===>55a50b07e103190f0000	len is 20
+===get breath at time 16
+===>55a50b07e10319100000	len is 20
+===get breath at time 17
+===>55a50b07e10319110000	len is 20
+===get breath at time 18
+===>55a50b07e10319120000	len is 20
+===get breath at time 19
+===>55a50b07e10319130000	len is 20
+===get breath at time 20
+===>55a50b07e10319140000	len is 20
+===get breath at time 21
+===>55a50b07e10319150000	len is 20
+===get breath at time 22
+===>55a50b07e10319160000	len is 20
+===get breath at time 23
+===>55a50b07e10319170017	len is 20
+
+
+===get move at time 0
+===>55a60b07e10319000028	len is 20
+===get move at time 1
+===>55a60b07e10319010025	len is 20
+===get move at time 2
+===>55a60b07e10319020028	len is 20
+===get move at time 3
+===>55a60b07e10319030010	len is 20
+===get move at time 4
+===>55a60b07e10319040024	len is 20
+===get move at time 5
+===>55a60b07e1031905000a	len is 20
+===get move at time 6
+===>55a60b07e10319060020	len is 20
+===get move at time 7
+===>55a60b07e10319070013	len is 20
+===get move at time 8
+===>55a60b07e10319080026	len is 20
+===get move at time 9
+===>55a60b07e10319090000	len is 20
+===get move at time 10
+===>55a60b07e103190a0000	len is 20
+===get move at time 11
+===>55a60b07e103190b0000	len is 20
+===get move at time 12
+===>55a60b07e103190c0000	len is 20
+===get move at time 13
+===>55a60b07e103190d0000	len is 20
+===get move at time 14
+===>55a60b07e103190e0000	len is 20
+===get move at time 15
+===>55a60b07e103190f0000	len is 20
+===get move at time 16
+===>55a60b07e10319100000	len is 20
+===get move at time 17
+===>55a60b07e10319110000	len is 20
+===get move at time 18
+===>55a60b07e10319120000	len is 20
+===get move at time 19
+===>55a60b07e10319130000	len is 20
+===get move at time 20
+===>55a60b07e10319140001	len is 20
+===get move at time 21
+===>55a60b07e10319150000	len is 20
+===get move at time 22
+===>55a60b07e10319160000	len is 20
+===get move at time 23
+===>55a60b07e1031917001f	len is 20
