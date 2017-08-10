@@ -1,0 +1,22 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006-2011 OpenWrt.org
+
+START=99
+
+start() {
+	loglevel=`uci get server.attr.loglevel` || 7
+	uart=`uci get server.attr.uart` || /dev/ttyS1
+	speed=`uci get server.attr.speed` || 9600
+	uartout=`uci get server.attr.uartout` || 500
+	tcpout=`uci get server.attr.tcpout` || 8000
+	noneblk=`uci get server.attr.tcpnoneblk` || 1
+	ip=`uci get server.attr.ipaddr` || 192.168.100.2
+	port=`uci get server.attr.port` || 65511
+	
+	/bin/tcptty -D -l $loglevel -d $uart -s $speed -t $uartout -i $ip -p $port -o $tcpout -b $noneblk
+}
+
+stop() {
+	killall -INT tcptty
+	sleep 1
+}

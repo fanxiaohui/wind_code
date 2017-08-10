@@ -1,0 +1,1 @@
+*/5 * * * * pidof tcptty || /bin/date >> /etc/tcptty-crash && /etc/init.d/tcptty start
