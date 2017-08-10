@@ -1,17 +1,7 @@
 ##############################################
-# OpenWrt Makefile for leoman_bed program
-#
-# Most of the variables used here are defined in
-# the include directives below. We just need to
-# specify a basic description of the package,
-# where to build our program, where to find
-# the source files, and where to install the
-# compiled program on the router.
-#
-# Be very careful of spacing in this file.
-# Indents should be tabs, not spaces, and
-# there should be no trailing whitespace in
-# lines that are not commented.
+# Workon Linkit7688
+#  tcp  <---> tty1
+# WIFI： sta only； Driver From MediatekLabs
 #
 ##############################################
 include $(TOPDIR)/rules.mk
