@@ -1,12 +1,22 @@
 ##############################################
-# Workon Linkit7688
-#  tcp  <---> tty1
-# WIFI： sta only； Driver From MediatekLabs
+# OpenWrt Makefile for tcptty program
+#
+# Most of the variables used here are defined in
+# the include directives below. We just need to
+# specify a basic description of the package,
+# where to build our program, where to find
+# the source files, and where to install the
+# compiled program on the router.
+#
+# Be very careful of spacing in this file.
+# Indents should be tabs, not spaces, and
+# there should be no trailing whitespace in
+# lines that are not commented.
 #
 ##############################################
 include $(TOPDIR)/rules.mk
 # Name and release number of this package
-PKG_NAME:=leoman_bed
+PKG_NAME:=tcptty
 PKG_RELEASE:=1
 
 # CMAKE_INSTALL:=1
@@ -24,21 +34,21 @@ include $(INCLUDE_DIR)/package.mk
 # variable below and uncomment the Kamikaze define
 # directive for the description below
 
-define Package/leoman_bed/Default
+define Package/tcptty/Default
 	SECTION:=utils
 	CATEGORY:=Utilities
 endef
 
-define Package/leoman_bed
-	$(call Package/leoman_bed/Default)
+define Package/tcptty
+	$(call Package/tcptty/Default)
 	DEPENDS:=+libpthread +libubox +liblua
 #	+libstdcpp +libjson-c +liblua-cjson2.1.0  +USE_GLIBC:librt
-	TITLE+= (For Leoman Smart Bed)
+	TITLE+= (UART <---> TCP)
 endef
 
 # Uncomment portion below for Kamikaze and delete DESCRIPTION variable above
-define Package/leoman_bed/description
-        for Leoman Smart Bed with two uarts and one SD card ,some gpios
+define Package/tcptty/description
+        UART <---> TCP
 endef
 
 # Specify what needs to be done to prepare for building the package.
@@ -60,18 +70,18 @@ endef
 # The defaults are appropriate for compiling a simple program such as this one
 
 # Specify where and how to install the program. Since we only have one file,
-# the leoman_bed executable, install it by copying it to the /bin directory on
+# the tcptty executable, install it by copying it to the /bin directory on
 # the router. The $(1) variable represents the root directory on the router running
 # OpenWrt. The $(INSTALL_DIR) variable contains a command to prepare the install
 # directory if it does not already exist.  Likewise $(INSTALL_BIN) contains the
 # command to copy the binary file from its current location (in our case the build
 # directory) to the install directory.
-define Package/leoman_bed/install
+define Package/tcptty/install
 	$(INSTALL_DIR) $(1)/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tcptty $(1)/bin/
 	
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/leoman_bed.init $(1)/etc/init.d/tcptty
+	$(INSTALL_BIN) ./files/tcptty.init $(1)/etc/init.d/tcptty
 	
 	$(INSTALL_DIR) $(1)/etc/crontabs
 	$(CP) ./files/detect $(1)/etc/crontabs/root
@@ -81,4 +91,4 @@ endef
 # The above define directives specify all the information needed, but this
 # line calls BuildPackage which in turn actually uses this information to
 # build a package.
-$(eval $(call BuildPackage,leoman_bed))
+$(eval $(call BuildPackage,tcptty))
