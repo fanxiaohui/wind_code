@@ -1,0 +1,16 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006-2011 OpenWrt.org
+
+START=90
+
+start() {
+	echo "start"
+	/bin/ikcc_service &
+}
+
+stop() {
+	echo "stop"
+	pid=`pidof ikcc_service`
+	kill -9 $pid
+}
+
