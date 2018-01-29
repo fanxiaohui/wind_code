@@ -13,11 +13,11 @@
 
 enum _fj_code {
 	PD = 0,
-	PW,
+//	PW,
 	CR,
-	cr,
+//	cr,
 	CP,
-	UR,
+//	UR,
 	CW,
 	CE,
 	LR,

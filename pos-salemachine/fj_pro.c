@@ -13,11 +13,11 @@
 
 unsigned char fj_cmds[16][3] = {
 	{'P','D'},
-	{'P','W'},
+//	{'P','W'},
 	{'C','R'},
-	{'c','r'},
+//	{'c','r'},
 	{'C','P'},
-	{'U','R'},
+//	{'U','R'},
 	{'C','W'},
 	{'C','E'},
 	{'L','R'},
@@ -28,7 +28,7 @@ unsigned char RSP_PW[6] = {STX,'P','W','0',ETX,'?'};
 unsigned char RSP_PD[6] = {STX,'P','D','0',ETX,'?'};
 unsigned char RSP_CR_CPOK[10] = {STX,'C','R',0x00,0x00,0x00,0x00,'0',ETX,'?'};
 unsigned char RSP_CR_CPNOK[10] = {STX,'C','R',0x04,0x00,0x00,0x00,'0',ETX,'?'};
-unsigned char RSP_CR_CP_BAL[13] = {STX,'c','r',0x00,0x00,0x00,0x00,0x01,0x02,0x03,'0',ETX,'?'};
+unsigned char RSP_CR_CP_BAL[13] = {STX,'c','r',0x00,0x40,0x00,0x00,0x01,0x02,0x03,'0',ETX,'?'};
 unsigned char RSP_CP_OK[6] = {STX,'C','P','0',ETX,'?'};
 unsigned char RSP_CW_OK[6] = {STX,'C','W','0',ETX,'?'};
 unsigned char RSP_CW_NOK[6] = {STX,'C','W','1',ETX,'?'};
@@ -42,6 +42,8 @@ static int fj_handle_pro(int fd, unsigned char *buffer, int length)
 	int outlen = 0;
 	static char pd_end = 0;
 	static char cp_ok = 0;
+	static char SL_FLAG = 0;
+	
 	enum _fj_code cscode = END;
 	int balance = 0x00;
 	int lrc = 0;
@@ -66,22 +68,32 @@ static int fj_handle_pro(int fd, unsigned char *buffer, int length)
 		case CR:
 			debug(LOG_DEBUG, "<------ CR, check info.\n");
 			if(0 == pd_end) {
-				// send PW
-				memcpy(outresp, RSP_PW, 6);
-				outlen = 6;
+			// send PW
+			memcpy(outresp, RSP_PW, 6);
+			outlen = 6;
 			} else {
 				if(cp_ok) {
-					//  recv card ok;
-					memcpy(outresp, RSP_CR_CPOK, 10);
+					//  can recv card ;
+					if(SL_FLAG)
+					{
+						//SL_FLAG = 0;
+						
+						//must have balance then canbe saled
+						// send card balance 0x65 0x43 0x21
+						memcpy(outresp, RSP_CR_CP_BAL, 13);
+						outlen = 13;
+					}
+					else
+					{
+						memcpy(outresp, RSP_CR_CPOK, 10);
+						outlen = 10;
+					}
+					
 				} else {
 					// can not recv card
 					memcpy(outresp, RSP_CR_CPNOK, 10);
+					outlen = 10;
 				}
-				outlen = 10;
-				
-				//debug: send card balance 0x01 0x02 0x03
-				//memcpy(outresp, RSP_CR_CP_BAL, 13);
-				//outlen = 13;
 			}
 			break;
 		case CP:
@@ -128,31 +140,60 @@ static int fj_handle_pro(int fd, unsigned char *buffer, int length)
 				}
 				outlen = 6;
 			}
+			//waiting next selected
+			SL_FLAG = 0;
 			break;
 		case CE:
-			debug(LOG_DEBUG, "<------ CE, clear card.\n");
-			//clear card
-			memcpy(outresp, RSP_CE_OK, 6);
-			outlen = 6;
+			debug("<-----VTS CE PD_STA=%d.\r\n",pd_end);
+			if(0 == pd_end) {
+					// send PW
+					memcpy(outresp, RSP_PW, 6);
+					outlen = 6;
+			} else {
+				//clear card
+				memcpy(outresp, RSP_CE_OK, 6);
+				outlen = 6;
+			}
 			break;
 		case LR:
-			debug(LOG_DEBUG, "<------ LR, version confirm.\n");
+			debug("<-----VTS LR PD_STA=%d.\r\n",pd_end);
 			//get card version,def 'A'
-			memcpy(outresp, RSP_LR_OK, 6);
-			outlen = 6;
+			if(0 == pd_end) {
+					// send PW
+					memcpy(outresp, RSP_PW, 6);
+					outlen = 6;
+			} else {
+				memcpy(outresp, RSP_LR_OK, 6);
+				outlen = 6;
+			}
 			break;
 		case NS:
-			debug(LOG_DEBUG, "<------ NS, not selected.\n");
+			debug("<-----VTS NS PD_STA=%d.\r\n",pd_end);
+			SL_FLAG = 0;
 			// not selected 
-			memcpy(outresp, RSP_NS_OK, 6);
-			outlen = 6;
+			if(0 == pd_end) {
+					// send PW
+					memcpy(outresp, RSP_PW, 6);
+					outlen = 6;
+			} else {
+				memcpy(outresp, RSP_NS_OK, 6);
+				outlen = 6;
+			}
 			break;
 		case SL:
-			debug(LOG_DEBUG, "<------ SL, product selected.\n");
+			debug("<-----VTS SL PD_STA=%d.\r\n",pd_end);
+		
 			// selected
-			cp_ok = 1; //???
-			memcpy(outresp, RSP_SL_OK, 6);
-			outlen = 6;
+			if(0 == pd_end) {
+					// send PW
+					memcpy(outresp, RSP_PW, 6);
+					outlen = 6;
+			} else {
+				SL_FLAG = 1;
+				//cp_ok = 1; //???
+				memcpy(outresp, RSP_SL_OK, 6);
+				outlen = 6;
+			}
 			break;
 		case END:
 			debug(LOG_WARNING, "=====Can not found CMD_SUB [0x%02x][0x%02x]!\n",buffer[1],buffer[2]);
