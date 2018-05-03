@@ -1,10 +1,17 @@
 ##############################################
-# Zyrh Net4G
-# board <---> server;
-# tcp and json
-# up status
-# ctrl cmd
-# OTA
+# OpenWrt Makefile for net4g program
+#
+# Most of the variables used here are defined in
+# the include directives below. We just need to
+# specify a basic description of the package,
+# where to build our program, where to find
+# the source files, and where to install the
+# compiled program on the router.
+#
+# Be very careful of spacing in this file.
+# Indents should be tabs, not spaces, and
+# there should be no trailing whitespace in
+# lines that are not commented.
 #
 ##############################################
 include $(TOPDIR)/rules.mk

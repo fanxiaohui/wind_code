@@ -22,6 +22,7 @@
 #include <sys/time.h>
 /* for wait() */
 #include <sys/wait.h>
+#include <sys/ioctl.h>
 
 #include "net_base.h"
 #include "net_json.h"
@@ -41,6 +42,9 @@
 
 #define WAITTING_TIME	10  //s
 #define LOGIN_TIME		10   //s
+
+#define LOCKFILE "/var/run/net4g.pid"
+#define LOCKMODE (S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH)
 
 #if 1
 #include "debug.h"
@@ -64,6 +68,41 @@ static char exit_flag = 0;
 static CONFIG_ST *glb_cfg;
 static ST_UART uart_attr;
 volatile int glb_remote_socket = 0;
+
+int already_running(void)
+{
+	int		fd;
+	char	buf[16];
+
+	fd = open(LOCKFILE, O_RDWR|O_CREAT, LOCKMODE);
+	if (fd < 0) {
+		syslog(LOG_ERR, "can't open %s: %s", LOCKFILE, strerror(errno));
+		exit(1);
+	}
+	if (lockfile(fd) < 0) {
+		if (errno == EACCES || errno == EAGAIN) {
+			close(fd);
+			return(1);
+		}
+		syslog(LOG_ERR, "can't lock %s: %s", LOCKFILE, strerror(errno));
+		exit(1);
+	}
+	ftruncate(fd, 0);
+	sprintf(buf, "%ld", (long)getpid());
+	write(fd, buf, strlen(buf)+1);
+	return(0);
+}
+
+int lockfile(int fd)
+{
+	struct flock fl;
+
+	fl.l_type = F_WRLCK;
+	fl.l_start = 0;
+	fl.l_whence = SEEK_SET;
+	fl.l_len = 0;
+	return(fcntl(fd, F_SETLK, &fl));
+}
 
 //{"respcode":"success","seqnum":"99","respmsg":"4g ok"}
 char buf[] = "{\"result\":\"success\",\"errorCode\":1}";
@@ -221,7 +260,7 @@ int init_connect(const char *ip_addr, int port, int keepalive)
         }
     }
     
-    fcntl(cli_fd,F_SETFL,flags & ~O_NONBLOCK);
+    //fcntl(cli_fd,F_SETFL,flags & ~O_NONBLOCK);
 #else
 	//def connect timeout 75s
 	if(connect(cli_fd, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
@@ -469,20 +508,20 @@ void* handle_tty(int *arg)
 	while(!exit_flag) {
 		if(uart_attr.valid) {
 			if(fd <= 0) {
-				fd = init_com_dev("/dev/ttyS0",0,&uart_attr);
+				fd = init_com_dev("/dev/ttyS1",0,&uart_attr);
 			}
 			
 			if(fd <= 0) {
-				ERROR("Open tty error!\n");
+				ERROR("Open ttyS1 error!\n");
 				uart_attr.fd = -1;
 				sleep_seconds_intr(60);
 				continue;
 			} else {
-				NOTE("ttyS0 open success %d\n",fd);
+				NOTE("ttyS1 open success %d\n",fd);
 				memset(buffer,0,sizeof(buffer));
 				len = read(fd,buffer,sizeof(buffer)-1);
 				if(len <= 0) {
-					NOTE("ttyS0 read error! %d:%s\n",errno,strerror(errno));
+					NOTE("ttyS1 read error! %d:%s\n",errno,strerror(errno));
 					if(fd > 0) close(fd);
 					fd = -1;
 					continue;
@@ -537,25 +576,44 @@ void* handle_tty(int *arg)
 	return NULL;
 }
 
-
 void* handle_agps(int *arg)
 {
+	char ttydev[32] = {0};
+	char atcfgfile[64] = {0};
 	char one_line[512] = {0};
 	char *p = one_line;
 	char ch = 0;
 	int valid_flag = 0;
     int count = 0;
-
-	NOTE("AGPS Thread start...\n");
-	if(access("/dev/ttyUSB3",F_OK) == 0) {
-		NOTE("send GPS Start AT CMD\n");
-		system("/usr/bin/gcom -d /dev/ttyUSB2 -s /etc/gcom/startagps.gcom > /tmp/agps_status");
-	}
 	int fd = -1;
-
+	
+	NOTE("AGPS Thread start...\n");
+WAIT_TYPE:
+	read_file("/tmp/modem_type",one_line,64);
+	if(strstr(one_line,"EC20")) {
+		strcpy(ttydev,"/dev/ttyUSB1");
+		strcpy(atcfgfile,"/etc/gcom/longsangagps.gcom");
+	} else if(strstr(one_line,"LONGSUNG")) {
+		strcpy(ttydev,"/dev/ttyUSB3");
+		strcpy(atcfgfile,"/etc/gcom/ec20agps.gcom");
+	} else {
+		NOTE("AGPS Thread wait modem_type [%s]\n",one_line);
+		sleep_seconds_intr(3);
+		memset(one_line,0,sizeof(one_line));
+		goto WAIT_TYPE;
+	}
+	
+	if(access(ttydev,F_OK) == 0) {
+		NOTE("send AGPS Start AT CMD\n");
+		sprintf(one_line,"/usr/bin/gcom -d %s -s %s > /tmp/agps_status",ttydev,atcfgfile);
+		//system(one_line); // exec at 3g.sh
+	}
+	
+	NOTE("AGPS dev is %s\n",ttydev);
+	NOTE("AGPS AT cmd is %s\n",atcfgfile);
 	while(!exit_flag) {
-		if(access("/dev/ttyUSB3",F_OK) != 0) {
-			ERROR("APGS: ttyUSB3 is not exist!\n");
+		if(access(ttydev,F_OK) != 0) {
+			ERROR("APGS:DEV %s is not exist!\n",ttydev);
 			if(fd > 0) port_close(fd);
 			fd = -1;
 			sleep_seconds_intr(120);
@@ -563,8 +621,8 @@ void* handle_agps(int *arg)
 		}
 		
 		if(fd < 0) {
-			NOTE("APGS: Reopen ttyUSB3 dev\n");
-			fd = open_gps_com("/dev/ttyUSB3");
+			NOTE("APGS: Reopen GPS dev %s\n",ttydev);
+			fd = open_gps_com(ttydev);
 			if(fd < 0)
 				goto RECONN;
 		}
@@ -599,11 +657,11 @@ void* handle_agps(int *arg)
 		continue;
 	RECONN:
 		ERROR("Read AGPS Com Error!%d:%s\n",errno,strerror(errno));
-		if(fd >0) port_close(fd);
+		if(fd > 0) port_close(fd);
 		fd = -1;
 		sleep_seconds_intr(60);
 	}
-	NOTE("AGPS Thread exit!\n");
+	NOTE("AGPS Thread exit! need to close AT ?\n");
 	if(fd >0) port_close(fd);
 	system("/bin/echo AGPS_thread_EXIT > /tmp/agps_status");
 	return NULL;
@@ -732,7 +790,7 @@ int send_board_info(int socket,unsigned int seqnum)
 	system("/bin/echo signal=$(cat /tmp/sig) >> /tmp/signal");
 	system("/bin/cat /tmp/module_status_file >> /tmp/signal");
 	nvram_renew("/tmp/signal");
-	
+	nvram_renew("/tmp/vcc");
 	char *ptr = create_json_board_info("/tmp/board_file",strnum);
 	ret = sock_send(socket,ptr,strlen(ptr));
 	free(ptr);
@@ -889,8 +947,9 @@ sigchld_handler(int s)
 
 void termination_handler(int sig)
 {
-	WARN("Catch Signal %d\n",sig);
+	WARN("\n-------Catch Signal %d, Main Process Exit.-------\n",sig);
 	exit_flag = 1;
+	usleep(10000);
 	exit(1);
 }
 
@@ -1350,6 +1409,14 @@ int main(int argc,char **argv)
 		NOTE("Starting as daemon, forking to background");
 		init_daemon();
 	}
+	/*
+	 * Make sure only one copy of the daemon is running.
+	 */
+	if (already_running()) {
+		syslog(LOG_ERR, "net4g daemon already running\n");
+		exit(1);
+	}
+	
 	// close timer on gpio
 	record2file(WTD_TRIG,"none",4);
 	record2file(WTD_BRIG,"0",1);
@@ -1378,12 +1445,14 @@ int main(int argc,char **argv)
 	pthread_detach(tpid);
 #endif
 
+#if 1
 	pthread_t apid = 0;
 	if(pthread_create(&apid,NULL,(void*)handle_agps,NULL) < 0 ) {
 		ERROR("create Agps thread error!\n");
 		exit(1);
 	}
 	pthread_detach(apid);
+#endif
 	
 	pthread_t ptid = 0;
 	if(pthread_create(&ptid,NULL,(void*)handle_timing_gpio,NULL) < 0 ) {
@@ -1535,8 +1604,9 @@ int main(int argc,char **argv)
 		faild_login = 1;
 		if(socket > 0) close(socket);
 		socket = -1;
+		sleep_seconds_intr(25);
 		record2file(WTD_BRIG,"0",1);
-		sleep_seconds_intr(30);
+		sleep_seconds_intr(1);
 	} //end while(1)
 EXIT:
 	exit_flag = 1;
