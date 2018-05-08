@@ -114,7 +114,7 @@ void AppTaskStart (void *pdata)
 	TIM_Cmd(TIM3, ENABLE);
 	//TIM_Cmd(TIM4, ENABLE);
 	
-	_debug("start V3 POS 20180502-1600............\r\n");
+	_debug("start V7 POS 20180508-0940............\r\n");
 
     while(1)
     {

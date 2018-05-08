@@ -8,11 +8,11 @@ void MFUNTask(void *pData);
 void FoodPriceDs(u8 *pKeyOK, u8 *pKeyValue, u16 CardMoney);
 void Card1_Data_In(u8 Dat);
 
-struct StatePraStr/*×´Ì¬ï¿½ï¿½ï¿½ï¿½*/
+struct StatePraStr/*×´Ì¬²ÎÊý*/
 {
-    u8 State_KeyValue; /*ï¿½ï¿½ï¿½ï¿½Öµ*/
-    u8 State_Channel;  /*ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½*/
-    u16 State_Money;/*ï¿½ï¿½ï¿½Û¼Û¸ï¿½*/
+    u8 State_KeyValue; /*°´¼üÖµ*/
+    u8 State_Channel;  /*ÏúÊÛÍ¨µÀ*/
+    u16 State_Money;/*ÏúÊÛ¼Û¸ñ*/
 
 };
 
@@ -34,6 +34,8 @@ struct StatePraStr/*×´Ì¬ï¿½ï¿½ï¿½ï¿½*/
 #define PRO_TYPE		0x01
 #define CMD_DED		0xA2
 #define RSP_DED		0x52
+#define CMD_CANCEL	0xA3
+#define RSP_CANCEL	0x53
 
 #define POS_CMD_DED_LEN		12
 
@@ -68,7 +70,7 @@ enum _ret_code  {
 	NO_CARD,
 	DEAL_FAIL,
 	DEAL_WAIT,
-	DEAL_TIMEOUT,
+	DEAL_WEIJUETIMEOUT,
 	CARD_NUM_ERR,
 	
 	SYS_ERR = 0x10,
@@ -81,6 +83,7 @@ enum _ret_code  {
 	CARD_FORBIDDEN = 0x35,
 	CARD_WD_ERR	= 0x41,
 	DEAL_CANCEL	= 0x42,
+	DEAL_TIMEOUT = 0x43,
 	UNSUPPORT = 0xf0,
 	RET_END
 };

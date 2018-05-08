@@ -198,20 +198,20 @@ void CAN1_RX0_IRQHandler(void)
 
 
 /*
-ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT)  ï¿½ï¿½ 
-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï±ï¿½Ö¾Î»ï¿½Ç·ï¿½ï¿½ï¿½1ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Ð¶Ï¡ï¿½
-ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ð¶Ïºï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½È¡ï¿½Ð¶Ï±ï¿½Ö¾Î»ï¿½ï¿½Í¨ï¿½ï¿½Ê¹ï¿½Ã¸Ãºï¿½ï¿½ï¿½ï¿½ï¿½
+ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT)  £º 
+²»½ö»áÅÐ¶Ï±êÖ¾Î»ÊÇ·ñÖÃ1£¬Í¬Ê±»¹»áÅÐ¶ÏÊÇ·ñÊ¹ÄÜÁËÏàÓ¦µÄÖÐ¶Ï¡£
+ËùÒÔÔÚ´®¿ÚÖÐ¶Ïº¯ÊýÖÐ£¬Èç¹ûÒª»ñÈ¡ÖÐ¶Ï±êÖ¾Î»£¬Í¨³£Ê¹ÓÃ¸Ãº¯Êý¡£
 
-FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG)ï¿½ï¿½
-ï¿½Ãºï¿½ï¿½ï¿½Ö»ï¿½Ð¶Ï±ï¿½Ö¾Î»ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Ð¶Ïºï¿½ï¿½ï¿½Ê±ï¿½ï¿½Í¨ï¿½ï¿½Ê¹ï¿½Ã¸Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï±ï¿½Ö¾Î»ï¿½Ç·ï¿½ï¿½ï¿½1
+FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG)£º
+¸Ãº¯ÊýÖ»ÅÐ¶Ï±êÖ¾Î»¡£ÔÚÃ»ÓÐÊ¹ÄÜÏàÓ¦µÄÖÐ¶Ïº¯ÊýÊ±£¬Í¨³£Ê¹ÓÃ¸Ãº¯ÊýÀ´ÅÐ¶Ï±êÖ¾Î»ÊÇ·ñÖÃ1
 */
 
 
-/*CANï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½
-D[0]:0~99 ï¿½ï¿½É«LED×´Ì¬ D[2]D[3],D[4]D[5],D[6]D[7] Îª3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-D[0]ï¿½ï¿½100~199 ï¿½ï¿½É«LED×´Ì¬  D[2]ï¿½ï¿½D[3],D[4]ï¿½ï¿½D[5],D[6]ï¿½ï¿½D[7] Îª6ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-D[1]:1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½LEDï¿½ï¿½ï¿½ï¿½ÖµLEDï¿½å£¬0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½LEDï¿½ï¿½
-D[0]:200 D[2]Îªï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+/*CAN×ÜÏß½ÓÊÕ
+D[0]:0~99 ²ÊÉ«LED×´Ì¬ D[2]D[3],D[4]D[5],D[6]D[7] Îª3×éÊý¾Ý
+D[0]£º100~199 °×É«LED×´Ì¬  D[2]£¬D[3],D[4]£¬D[5],D[6]£¬D[7] Îª6×éÊý¾Ý
+D[1]:1 Á¢¼´¸üÐÂLEDÊý¾ÝÖµLED°å£¬0£¬²»¸üÐÂÊý¾ÝÖÁLED°å
+D[0]:200 D[2]ÎªÊý¾Ý ¿ªËø
 */
 
 void USB_LP_CAN_RX0_IRQHandler(void)
@@ -230,11 +230,11 @@ void TIM2_IRQHandler(void)
     {
 		//debug("TIM2...\r\n");
 		if(GLB_VTS_RX_STA > 0)
-			GLB_VTS_RX_STA |= VTS_FIN_MASK; //VTS ï¿½ï¿½ï¿½Õ³ï¿½Ê±(ï¿½Ö·ï¿½ï¿½ï¿½ï¿½>ï¿½ï¿½Ê±Ê±ï¿½ï¿½)ï¿½ï¿½Ç¿ï¿½ï¿½Ò»Ö¡ï¿½ï¿½ï¿½ï¿½
+			GLB_VTS_RX_STA |= VTS_FIN_MASK; //VTS ½ÓÊÕ³¬Ê±(×Ö·û¼ä¸ô>¶¨Ê±Ê±¼ä)£¬Ç¿ÖÆÒ»Ö¡½áÊø
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update );  
-		TIM_Cmd(TIM2, DISABLE);  //ï¿½È´ï¿½VTSï¿½Ð¿ï¿½ï¿½ï¿½
+		TIM_Cmd(TIM2, DISABLE);  //µÈ´ýVTSÖÐ¿ªÆô
     }
-    TIM_ClearFlag(TIM2 , TIM_FLAG_Update);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï±ï¿½Ö¾Î»ï¿½ï¿½ï¿½ï¿½Ò»Ö±ï¿½Ð¶ï¿½
+    TIM_ClearFlag(TIM2 , TIM_FLAG_Update);//±ØÐëÇå³ýÖÐ¶Ï±êÖ¾Î»·ñÔòÒ»Ö±ÖÐ¶Ï
 	
 	OSIntExit();
 }
@@ -257,7 +257,7 @@ void TIM3_IRQHandler(void)
 		
     }
 	 TIM_ClearFlag(TIM3, TIM_FLAG_Update); 
-    //TIM_ClearITPendingBit(TIM3 , TIM_FLAG_Update);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï±ï¿½Ö¾Î»ï¿½ï¿½ï¿½ï¿½Ò»Ö±ï¿½Ð¶ï¿½
+    //TIM_ClearITPendingBit(TIM3 , TIM_FLAG_Update);//±ØÐëÇå³ýÖÐ¶Ï±êÖ¾Î»·ñÔòÒ»Ö±ÖÐ¶Ï
 	
 	OSIntExit();
 }
@@ -292,31 +292,31 @@ void VTS_UART_IRQHandler(void)
 	
 	OSIntEnter();
 	
-	if(USART_GetFlagStatus(VTS_UART,USART_FLAG_ORE) == SET) //ï¿½ï¿½ï¿½
+	if(USART_GetFlagStatus(VTS_UART,USART_FLAG_ORE) == SET) //Òç³ö
 	{
-		USART_ClearFlag(VTS_UART,USART_FLAG_ORE); //ï¿½ï¿½SR
-		USART_ReceiveData(VTS_UART); //ï¿½ï¿½DR
+		USART_ClearFlag(VTS_UART,USART_FLAG_ORE); //¶ÁSR
+		USART_ReceiveData(VTS_UART); //¶ÁDR
 		debug("----err-----VTS overrun!!!\r\n");
 	}
-	if(USART_GetFlagStatus(VTS_UART,USART_FLAG_PE) == SET) //ï¿½ï¿½ï¿½
+	if(USART_GetFlagStatus(VTS_UART,USART_FLAG_PE) == SET) //Òç³ö
 	{
 		USART_ClearFlag(VTS_UART,USART_FLAG_PE);
 		USART_ReceiveData(VTS_UART);
 		debug("----err-----VTS PE error!!!\r\n");
 	}
 	
-	if(USART_GetITStatus(VTS_UART,USART_IT_RXNE) != RESET) //ï¿½Ð¶Ï²ï¿½ï¿½ï¿½
+	if(USART_GetITStatus(VTS_UART,USART_IT_RXNE) != RESET) //ÖÐ¶Ï²úÉú
 	{
 		
-		USART_ClearITPendingBit(VTS_UART,USART_IT_RXNE); //ï¿½ï¿½ï¿½ï¿½Ð¶Ï±ï¿½Ö¾.
+		USART_ClearITPendingBit(VTS_UART,USART_IT_RXNE); //Çå³ýÖÐ¶Ï±êÖ¾.
 		res = USART_ReceiveData(VTS_UART);
 		//debug("----ok-----data 0x%x!!!\r\n",res);	//take some time will cause ORE	
 		if((GLB_VTS_RX_STA & VTS_FIN_MASK) == 0 )
 		{
 			if(GLB_VTS_RX_STA < VTS_LEN_MAX)
 			{
-				TIM_SetCounter(TIM2, 0);  //ï¿½ï¿½ï¿½Â¼ï¿½Ê±
-				if(GLB_VTS_RX_STA == 0) 	//ï¿½Õµï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö½Ú£ï¿½Ê¹ï¿½Ü¶ï¿½Ê±ï¿½ï¿½
+				TIM_SetCounter(TIM2, 0);  //ÖØÐÂ¼ÆÊ±
+				if(GLB_VTS_RX_STA == 0) 	//ÊÕµ½µÚÒ»¸ö×Ö½Ú£¬Ê¹ÄÜ¶¨Ê±Æ÷
 				{
 					 TIM_ClearFlag(TIM2, TIM_FLAG_Update); 
 					 TIM_ClearITPendingBit(TIM2, TIM_IT_Update );
@@ -339,9 +339,9 @@ void VTS_UART_IRQHandler(void)
 			}
 			else 
 			{
-				GLB_VTS_RX_STA |= VTS_FIN_MASK; //ï¿½ïµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				GLB_VTS_RX_STA |= VTS_FIN_MASK; //´ïµ½×î´ó½ÓÊÕÊý
 			}
-		} //bufferï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		} //buffer»¹Î´±»´¦ÀíÍê³É,¶ªµôºóÐøÊý¾Ý
 	}
 	
 //	if(USART_GetFlagStatus(VTS_UART,USART_IT_IDLE) != RESET) //IDLE,one byte time;115200 onebyte=82.8us	
@@ -363,22 +363,22 @@ void POS_UART_IRQHandler(void)
 
 	OSIntEnter();
 	
-	if(USART_GetFlagStatus(POS_UART,USART_FLAG_ORE) == SET) //ï¿½ï¿½ï¿½
+	if(USART_GetFlagStatus(POS_UART,USART_FLAG_ORE) == SET) //Òç³ö
 	{
-		USART_ClearFlag(POS_UART,USART_FLAG_ORE); //ï¿½ï¿½SR
-		USART_ReceiveData(POS_UART); //ï¿½ï¿½DR
+		USART_ClearFlag(POS_UART,USART_FLAG_ORE); //¶ÁSR
+		USART_ReceiveData(POS_UART); //¶ÁDR
 		debug("---err-----POS overrun!!!\r\n");
 	}
 	
-	if(USART_GetITStatus(POS_UART,USART_IT_RXNE) != RESET) //ï¿½Ð¶Ï²ï¿½ï¿½ï¿½
+	if(USART_GetITStatus(POS_UART,USART_IT_RXNE) != RESET) //ÖÐ¶Ï²úÉú
 	{
-		USART_ClearITPendingBit(POS_UART,USART_IT_RXNE); //ï¿½ï¿½ï¿½ï¿½Ð¶Ï±ï¿½Ö¾.
+		USART_ClearITPendingBit(POS_UART,USART_IT_RXNE); //Çå³ýÖÐ¶Ï±êÖ¾.
 		res = USART_ReceiveData(POS_UART);		 
 		if((GLB_POS_RX_STA & POS_FIN_MASK) == 0 )
 		{
 			if(GLB_POS_RX_STA < POS_LEN_MAX)
 			{
-				if(GLB_POS_RX_STA == 0) 	//ï¿½Õµï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö½ï¿½
+				if(GLB_POS_RX_STA == 0) 	//ÊÕµ½µÚÒ»¸ö×Ö½Ú
 				{
 
 					if(res == PRO_START)
@@ -401,7 +401,7 @@ void POS_UART_IRQHandler(void)
 						if(paylen >= 26 && retcode == POS_SUCCESS) {
 							if(GLB_POS_RX_STA >= POS_OK_RET_LEN) {
 								//decode ret OK. recv end.
-								GLB_POS_RX_STA |= POS_FIN_MASK; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+								GLB_POS_RX_STA |= POS_FIN_MASK; //½ÓÊÜÍê±Ï
 								POS_DEAL_RET_CODE = POS_SUCCESS;
 							}
 						}
@@ -409,21 +409,21 @@ void POS_UART_IRQHandler(void)
 						{
 							if(GLB_POS_RX_STA >= POS_DEAL_WAIT_LEN) {
 								//deal waiting. recv end.
-								GLB_POS_RX_STA |= POS_FIN_MASK; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+								GLB_POS_RX_STA |= POS_FIN_MASK; //½ÓÊÜÍê±Ï
 								POS_DEAL_RET_CODE = DEAL_WAIT;
 								//debug("<-----pos deal waiting %d seconds\n",posret[8]);
 								
 							}
-						} else if(paylen == 1 && retcode >= CRC_FAIL && retcode <= DEAL_CANCEL) {
+						} else if(paylen == 1 && retcode >= CRC_FAIL && retcode <= DEAL_TIMEOUT) {
 							if(GLB_POS_RX_STA >= POS_NORMAL_LEN) {
 								//paylen=1. recv end.
-								GLB_POS_RX_STA |= POS_FIN_MASK; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+								GLB_POS_RX_STA |= POS_FIN_MASK; //½ÓÊÜÍê±Ï
 								POS_DEAL_RET_CODE = retcode;
 								//debug("<------ POS deal err,retcode=0x%x\n",retcode);
 							}
 						} else {
 							//error paylen
-							GLB_POS_RX_STA |= POS_FIN_MASK; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+							GLB_POS_RX_STA |= POS_FIN_MASK; //½ÓÊÜÍê±Ï
 							POS_DEAL_RET_CODE = UNSUPPORT;
 							//debug("<------ POS result err,paylen=0x%x,retcode=0x%x\n",paylen,retcode);
 						}
@@ -432,9 +432,9 @@ void POS_UART_IRQHandler(void)
 			}
 			else 
 			{
-				GLB_POS_RX_STA |= POS_FIN_MASK; //ï¿½ïµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				GLB_POS_RX_STA |= POS_FIN_MASK; //´ïµ½×î´ó½ÓÊÕÊý
 			}
-		} //bufferï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		} //buffer»¹Î´±»´¦ÀíÍê³É,¶ªµôºóÐøÊý¾Ý
 	}
 	
 	OSIntExit();
@@ -446,16 +446,16 @@ void DBG_UART_IRQHandler(void)
 	
 	OSIntEnter();
 	
-	if(USART_GetFlagStatus(DBG_UART,USART_FLAG_ORE) == SET) //ï¿½ï¿½ï¿½
+	if(USART_GetFlagStatus(DBG_UART,USART_FLAG_ORE) == SET) //Òç³ö
 	{
-		USART_ClearFlag(DBG_UART,USART_FLAG_ORE); //ï¿½ï¿½SR
-		USART_ReceiveData(DBG_UART); //ï¿½ï¿½DR
+		USART_ClearFlag(DBG_UART,USART_FLAG_ORE); //¶ÁSR
+		USART_ReceiveData(DBG_UART); //¶ÁDR
 		//debug("DBG overrun!!!\n");
 	}
 	
-	if(USART_GetITStatus(DBG_UART,USART_IT_RXNE) != RESET) //ï¿½Ð¶Ï²ï¿½ï¿½ï¿½
+	if(USART_GetITStatus(DBG_UART,USART_IT_RXNE) != RESET) //ÖÐ¶Ï²úÉú
 	{
-		USART_ClearITPendingBit(DBG_UART,USART_IT_RXNE); //ï¿½ï¿½ï¿½ï¿½Ð¶Ï±ï¿½Ö¾.
+		USART_ClearITPendingBit(DBG_UART,USART_IT_RXNE); //Çå³ýÖÐ¶Ï±êÖ¾.
 		res = USART_ReceiveData(DBG_UART);
 		if(res == 'a')
 		{
